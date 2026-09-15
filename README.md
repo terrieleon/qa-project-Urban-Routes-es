@@ -46,8 +46,10 @@ Entre las funcionalidades automatizadas se encuentran: selección de tarifa “C
 
 ```bash
 pytest main.py
-Autor
-[Terrrie León García - Grupo 79a - Sprint 9] - Proyecto de automatización QA para TripleTen
+
 ```
+## Autor
+[Terrrie León García - Grupo 79a - Sprint 9] - Proyecto de automatización QA para TripleTen
+
 ## Reflexión personal
 Este proyecto me permitió aplicar mis conocimientos en automatización de pruebas de extremo a extremo. Reforcé el uso de buenas prácticas como esperas explícitas y validación dinámica de elementos. Además, consolidé mi confianza en el uso de herramientas como Selenium y Pytest, simulando una experiencia real de usuario.
