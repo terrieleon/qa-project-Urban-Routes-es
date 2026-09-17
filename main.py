@@ -146,21 +146,15 @@ class UrbanRoutesPage:
 
 class TestUrbanRoutes:
 
-    driver = None
+   driver = None
 
-    @classmethod
-    def setup_class(cls):
-        #no lo modifiques, ya que necesitamos un registro adicional habilitado para recuperar el código de confirmación del teléfono
-        #from selenium.webdriver import DesiredCapabilities
-        #capabilities = DesiredCapabilities.CHROME
-        #capabilities["goog:loggingPrefs"] = {'performance': 'ALL'}
-        #cls.driver = webdriver.Chrome(desired_capabilities=capabilities)
-        from selenium import webdriver
-        from selenium.webdriver.chrome.options import Options
-
-        options= Options()
+    def setup_method(self):
+        options = Options()
         options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
-        cls.driver = webdriver.Chrome(options=options)
+        self.driver = webdriver.Chrome(service=Service(), options=options)
+        self.driver.get(data.urban_routes_url)
+        self.routes_page = UrbanRoutesPage(self.driver)
+
 
     def test_set_route(self):
         self.driver.get(data.urban_routes_url)
@@ -218,7 +212,6 @@ class TestUrbanRoutes:
         routes_page.click_pedir_taxi()
         routes_page.check_modal()
 
-
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
+   def teardown_method(self):
+    if self.driver is not None:
+        self.driver.quit()
